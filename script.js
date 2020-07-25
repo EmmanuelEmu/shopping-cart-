@@ -4,6 +4,7 @@ function decreaseAccessories(minus, minusCost, price) {
     currentNumber = minus.value;
     if(currentNumber<=0){
         minus.innerHTML=0;
+        document.getElementById("subTotal").innerHTML = 0;
     }
     else{
         currentNumber--;
@@ -13,6 +14,11 @@ function decreaseAccessories(minus, minusCost, price) {
         let totalCost = currentCostNumber;
         totalCost = totalCost - price;
         minusCost.innerHTML = totalCost;
+        //reducing cost from subtotal
+        let subTotal = document.getElementById("subTotal").innerHTML;
+        let sbTotal = parseFloat(subTotal);
+        sbtotal = sbTotal-price;
+        document.getElementById("subTotal").innerHTML = sbtotal;
     }
 }
 //increasing amount and cost of accessories
@@ -25,6 +31,13 @@ function increaseAccessories(plus, plusCost, price) {
     let totalCost = currentCostNumber;
     totalCost = totalCost + price;
     plusCost.innerHTML = totalCost;
+    //adding amount to subtotal and total
+    let subTotal = document.getElementById("subTotal").innerHTML;
+    let sbTotal = parseFloat(subTotal);
+    sbtotal = sbTotal+price;
+    document.getElementById("subTotal").innerHTML = sbtotal;
+    
+
 }
 //common function for mobile phone cost adding and deducting 
 let phoneNumber = document.getElementById("phoneAmount");
